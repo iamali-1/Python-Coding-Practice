@@ -1,36 +1,16 @@
-# def pig_latin(word: str) -> str:
-#     vowels = ["a", "e", "i", "o", "u"]
-#     if word[0] in vowels:
-#         word += "way"
-#     else:
-#         w = word[0]
-#         word = word[1:]
-#         word += w
-#         word += "ay"
-#     return word
-
-
-# print(pig_latin("python"))
-
 def pig_latin(word: str) -> str:
-
-    small_vowels = ["a", "e", "i", "o", "u"]
-    capital_vowels = ["A", "E", "I", "O", "U"]
-    if word[0] in small_vowels:
-        word += "way"
-    elif word[0] in capital_vowels:
-        word += "way"
-        word = word.upper()
-
+    vowels = 'aeiuoAEIOU'
+    is_capitalized = word[0].isupper()
+    word_lower = word.lower()
+    if word_lower[0] in vowels:
+        result = word_lower + 'way'
     else:
-        w = word[0]
-        word = word[1:]
-        word += w
-        word += "ay"
-        if w.isupper():
-            word = word.upper()
+        result = word_lower[1:] + word_lower[0] + 'ay'
+    
+    if is_capitalized:
+        result = result.capitalize()
 
-    return word
+    return result
+       
 
-
-print(pig_latin("Python"))
+print(pig_latin("Pnime"))
