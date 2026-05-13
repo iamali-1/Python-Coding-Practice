@@ -28,22 +28,33 @@
 # print(alternate_pig_latin("wine"))
 
 
-def pl_sentence(sentence: str) -> str:
-    vowels = ["a", "e", "i", "o", "u"]
-    new_word = None
-    splitted = sentence.split(" ")
-    new_splitted = []
+# def pl_sentence(sentence: str) -> str:
+#     vowels = ["a", "e", "i", "o", "u"]
+#     new_word = None
+#     splitted = sentence.split(" ")
+#     new_splitted = []
 
-    for word in splitted:
-        w = word[0]
-        if w in vowels:
-            new_word = word + "way"
-            new_splitted.append(new_word)
-        elif w not in vowels:
-            new_word = word[1:] + w + "ay"
-            new_splitted.append(new_word)
-    new_string = " ".join(new_splitted)
-    return new_string
+#     for word in splitted:
+#         w = word[0]
+#         if w in vowels:
+#             new_word = word + "way"
+#             new_splitted.append(new_word)
+#         elif w not in vowels:
+#             new_word = word[1:] + w + "ay"
+#             new_splitted.append(new_word)
+#     new_string = " ".join(new_splitted)
+#     return new_string
 
 
-print(pl_sentence("this is a test translation"))
+# print(pl_sentence("this is a test translation"))
+
+
+def transpose(alphabets: list) -> list:
+    split_words = [s.split() for s in alphabets]
+
+    transposed = zip(*split_words)
+
+    return [" ".join(words) for words in transposed]
+
+
+print(transpose(["abc def ghi", "jkl mno pqr", "stu vwx yz"]))
