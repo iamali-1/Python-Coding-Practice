@@ -27,13 +27,26 @@
 # print(plus_minus([10, 20, 30, 40, 50, 60]))
 
 
-def mysum_bigger_than(*items):
-    first = items[0]
+# def mysum_bigger_than(*items):
+#     first = items[0]
+#     result = 0
+#     for item in items:
+#         if item > first:
+#             result += item
+#     return result
+
+
+# print(mysum_bigger_than(10, 5, 20, 30, 6))
+
+
+def sum_numeric(*items):
     result = 0
     for item in items:
-        if item > first:
-            result += item
+        try:
+            result += int(item)
+        except (ValueError, TypeError):
+            continue
     return result
 
 
-print(mysum_bigger_than(10, 5, 20, 30, 6))
+print(sum_numeric(10, 20, "a", "30", "bcd"))
