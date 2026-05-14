@@ -39,14 +39,40 @@
 # print(mysum_bigger_than(10, 5, 20, 30, 6))
 
 
-def sum_numeric(*items):
-    result = 0
-    for item in items:
-        try:
-            result += int(item)
-        except (ValueError, TypeError):
-            continue
-    return result
+# def sum_numeric(*items):
+#     result = 0
+#     for item in items:
+#         try:
+#             result += int(item)
+#         except (ValueError, TypeError):
+#             continue
+#     return result
 
 
-print(sum_numeric(10, 20, "a", "30", "bcd"))
+# print(sum_numeric(10, 20, "a", "30", "bcd"))
+
+
+def list_dicts(data):
+    final = {}
+    repeat = []
+    for dictionaries in data:
+        if isinstance(dictionaries, dict):
+            for key, value in dictionaries.items():
+                if key in final:
+                    if not isinstance(final[key], list):
+                        final[key] = [final[key]]
+                    final[key].append(value)
+                else:
+                    final[key] = value
+    return final
+
+
+print(
+    list_dicts(
+        [
+            {"name": "Alice", "age": 25},
+            {"name": "Bob", "city": "New York"},
+            {"age": 30, "city": "London", "hobby": "Reading"},
+        ]
+    )
+)
