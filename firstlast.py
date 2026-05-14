@@ -15,13 +15,25 @@
 # print(even_odd_sums([10, 20, 30, 40, 50, 60]))
 
 
-def plus_minus(numbers):
-    total = numbers[0]
-    for index in range(1,len(numbers)):
-        if index % 2 == 1:
-            total += numbers[index]
-        else:
-            total -= numbers[index]
-    return total
+# def plus_minus(numbers):
+#     total = numbers[0]
+#     for index in range(1,len(numbers)):
+#         if index % 2 == 1:
+#             total += numbers[index]
+#         else:
+#             total -= numbers[index]
+#     return total
 
-print(plus_minus([10, 20, 30, 40, 50, 60]))
+# print(plus_minus([10, 20, 30, 40, 50, 60]))
+
+
+def mysum_bigger_than(*items):
+    first = items[0]
+    result = 0
+    for item in items:
+        if item > first:
+            result += item
+    return result
+
+
+print(mysum_bigger_than(10, 5, 20, 30, 6))
