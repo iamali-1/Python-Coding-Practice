@@ -52,27 +52,59 @@
 # print(sum_numeric(10, 20, "a", "30", "bcd"))
 
 
-def list_dicts(data):
-    final = {}
-    repeat = []
-    for dictionaries in data:
-        if isinstance(dictionaries, dict):
-            for key, value in dictionaries.items():
-                if key in final:
-                    if not isinstance(final[key], list):
-                        final[key] = [final[key]]
-                    final[key].append(value)
-                else:
-                    final[key] = value
-    return final
+# def list_dicts(data):
+#     final = {}
+
+#     for dictionaries in data:
+#         if isinstance(dictionaries, dict):
+#             for key, value in dictionaries.items():
+#                 if key in final:
+#                     if not isinstance(final[key], list):
+#                         final[key] = [final[key]]
+#                     final[key].append(value)
+#                 else:
+#                     final[key] = value
+#     return final
 
 
-print(
-    list_dicts(
-        [
-            {"name": "Alice", "age": 25},
-            {"name": "Bob", "city": "New York"},
-            {"age": 30, "city": "London", "hobby": "Reading"},
-        ]
-    )
-)
+# print(
+#     list_dicts(
+#         [
+#             {"name": "Alice", "age": 25},
+#             {"name": "Bob", "city": "New York"},
+#             {"age": 30, "city": "London", "hobby": "Reading"},
+#         ]
+#     )
+# )
+
+
+# def sorted_countries(items):
+#     for item in items:
+#         if isinstance(item, dict):
+#             for key, value in item.items():
+#                 print(key, value)
+
+
+# print(
+#     sorted_countries(
+#         [
+#             {"name": "Canada", "size": 9984670, "population": 38250000},
+#             {"name": "Italy", "size": 301340, "population": 59110000},
+#             {"name": "United Kingdom", "size": 242495, "population": 67220000},
+#             {"name": "France", "size": 551695, "population": 67390000},
+#             {"name": "Germany", "size": 357022, "population": 83200000},
+#             {"name": "Japan", "size": 377975, "population": 125700000},
+#             {"name": "United States", "size": 9833517, "population": 331900000},
+#         ]
+#     )
+# )
+
+
+def lengthOfLastWord(s: str) -> str:
+    s = s.strip().split()
+    return len(s[-1])
+
+
+print(lengthOfLastWord("luffy is still joyboy"))
+print(lengthOfLastWord("Hello World"))
+print(lengthOfLastWord("   fly me   to   the moon  "))
