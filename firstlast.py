@@ -115,21 +115,37 @@
 # print(positive_negative(-2,3,4,5,6,7,-5))
 
 
+# import operator
+
+
+# def vowels_sort(mostVowels):
+#     vowels = "aeiou"
+#     count = 0
+#     count_list = []
+
+#     for word in mostVowels:
+#         for letter in word:
+#             if letter in vowels:
+#                 count += 1
+#         count_list.append({"name": word, "count": count})
+#         count = 0
+#     return sorted(count_list, key=operator.itemgetter("count"))
+
+
+# print(vowels_sort(["luffy", "is", "still", "joyboy"]))
+
 import operator
 
 
-def vowels_sort(mostVowels):
-    vowels = "aeiou"
-    vowel_count = 0
-    vowels_count_list = []
-
-    for word in mostVowels:
-        for letter in word:
-            if letter in vowels:
-                vowel_count += 1
-        vowels_count_list.append({"name": word, "count": vowel_count})
-        vowel_count = 0
-    return sorted(vowels_count_list, key=operator.itemgetter("count"))
+def list_of_lists(items):
+    count = 0
+    count_list = []
+    for item in items:
+        for nums in item:
+            count += nums
+        count_list.append({"list": item, "count": count})
+        count = 0
+    return sorted(count_list, key=operator.itemgetter("count"))
 
 
-print(vowels_sort(["luffy", "is", "still", "joyboy"]))
+print(list_of_lists([[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12, 13, 14, 15, 16]]))
