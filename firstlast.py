@@ -134,6 +134,22 @@
 
 # print(vowels_sort(["luffy", "is", "still", "joyboy"]))
 
+# import operator
+
+
+# def list_of_lists(items):
+#     count = 0
+#     count_list = []
+#     for item in items:
+#         for nums in item:
+#             count += nums
+#         count_list.append({"list": item, "count": count})
+#         count = 0
+#     return sorted(count_list, key=operator.itemgetter("count"))
+
+
+# print(list_of_lists([[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12, 13, 14, 15, 16]]))
+
 import operator
 
 
@@ -141,8 +157,7 @@ def list_of_lists(items):
     count = 0
     count_list = []
     for item in items:
-        for nums in item:
-            count += nums
+        count += len(item)
         count_list.append({"list": item, "count": count})
         count = 0
     return sorted(count_list, key=operator.itemgetter("count"))
