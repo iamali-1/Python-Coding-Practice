@@ -87,23 +87,49 @@
 # print(lengthOfLastWord("Hello World"))
 # print(lengthOfLastWord("   fly me   to   the moon  "))
 
+# import operator
+# from pprint import pprint
+
+# def sorted_countries(items):
+#     return (sorted(items,key=operator.itemgetter('name')))
+
+
+# pprint(
+#     sorted_countries(
+#         [
+#             {"name": "Canada", "size": 9984670, "population": 38250000},
+#             {"name": "Italy", "size": 301340, "population": 59110000},
+#             {"name": "United Kingdom", "size": 242495, "population": 67220000},
+#             {"name": "France", "size": 551695, "population": 67390000},
+#             {"name": "Germany", "size": 357022, "population": 83200000},
+#             {"name": "Japan", "size": 377975, "population": 125700000},
+#             {"name": "United States", "size": 9833517, "population": 331900000},
+#         ]
+#     )
+# )
+
+
+# def positive_negative(*nums):
+#     return sorted([abs(n) for n in nums])
+
+# print(positive_negative(-2,3,4,5,6,7,-5))
+
+
 import operator
-from pprint import pprint
-
-def sorted_countries(items):
-    return (sorted(items,key=operator.itemgetter('name')))
 
 
-pprint(
-    sorted_countries(
-        [
-            {"name": "Canada", "size": 9984670, "population": 38250000},
-            {"name": "Italy", "size": 301340, "population": 59110000},
-            {"name": "United Kingdom", "size": 242495, "population": 67220000},
-            {"name": "France", "size": 551695, "population": 67390000},
-            {"name": "Germany", "size": 357022, "population": 83200000},
-            {"name": "Japan", "size": 377975, "population": 125700000},
-            {"name": "United States", "size": 9833517, "population": 331900000},
-        ]
-    )
-)
+def vowels_sort(mostVowels):
+    vowels = "aeiou"
+    vowel_count = 0
+    vowels_count_list = []
+
+    for word in mostVowels:
+        for letter in word:
+            if letter in vowels:
+                vowel_count += 1
+        vowels_count_list.append({"name": word, "count": vowel_count})
+        vowel_count = 0
+    return sorted(vowels_count_list, key=operator.itemgetter("count"))
+
+
+print(vowels_sort(["luffy", "is", "still", "joyboy"]))
