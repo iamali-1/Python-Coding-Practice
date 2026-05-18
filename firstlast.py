@@ -185,20 +185,47 @@
 
 
 # print(reverseVowels("leetcode"))
-from collections import Counter
+# from collections import Counter
 
-WORDS = ["this", "is", "an", "elementary", "test", "example"]
-
-
-def most_repeating_letter_count(word):
-    vowels = "aeiouAEIOU"
-    for letter in word:
-        if letter in vowels:
-            return Counter(word).most_common(1)[0][1]
+# WORDS = ["this", "is", "an", "elementary", "test", "example"]
 
 
-def most_repeating_word(words):
-    return max(words, key=most_repeating_letter_count)
+# def most_repeating_letter_count(word):
+#     vowels = "aeiouAEIOU"
+#     for letter in word:
+#         if letter in vowels:
+#             return Counter(word).most_common(1)[0][1]
 
 
-print(most_repeating_word(WORDS))
+# def most_repeating_word(words):
+#     return max(words, key=most_repeating_letter_count)
+
+
+# print(most_repeating_word(WORDS))
+
+import operator
+from pprint import pprint
+
+
+def sorted_countries(countries):
+    output = []
+    template = "{0:15} {1:10,} {2:15,}"
+    for country in sorted(countries, key=operator.itemgetter(0)):
+        output.append(template.format(*country))
+
+    return output
+
+
+pprint(
+    sorted_countries(
+        [
+            ("Canada", 9984670, 38250000),
+            ("Italy", 301340, 59110000),
+            ("United Kingdom", 242495, 67220000),
+            ("France", 551695, 67390000),
+            ("Germany", 357022, 83200000),
+            ("Japan", 377975, 125700000),
+            ("United States", 9833517, 331900000),
+        ]
+    )
+)
