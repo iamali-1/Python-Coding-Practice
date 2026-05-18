@@ -203,29 +203,72 @@
 
 # print(most_repeating_word(WORDS))
 
+# import operator
+# from pprint import pprint
+
+
+# def sorted_countries(countries):
+#     output = []
+#     template = "{0:15} {1:10,} {2:15,}"
+#     for country in sorted(countries, key=operator.itemgetter(0)):
+#         output.append(template.format(*country))
+
+#     return output
+
+
+# pprint(
+#     sorted_countries(
+#         [
+#             ("Canada", 9984670, 38250000),
+#             ("Italy", 301340, 59110000),
+#             ("United Kingdom", 242495, 67220000),
+#             ("France", 551695, 67390000),
+#             ("Germany", 357022, 83200000),
+#             ("Japan", 377975, 125700000),
+#             ("United States", 9833517, 331900000),
+#         ]
+#     )
+# )
+
 import operator
 from pprint import pprint
 
 
-def sorted_countries(countries):
-    output = []
-    template = "{0:15} {1:10,} {2:15,}"
-    for country in sorted(countries, key=operator.itemgetter(0)):
-        output.append(template.format(*country))
+def oscar_movies(best_movies):
+    user_input = input(
+        "How do you want the data displayed? ('title/length/director'): "
+    ).lower()
 
+    # Decide the sort key
+    if user_input == "title":
+        sorted_movies = sorted(best_movies, key=operator.itemgetter(0))
+    elif user_input == "length":
+        sorted_movies = sorted(best_movies, key=operator.itemgetter(1))
+    elif user_input == "director":
+        sorted_movies = sorted(best_movies, key=operator.itemgetter(2))
+    else:
+        print("Invalid input, showing unsorted list")
+        sorted_movies = best_movies
+
+    # Single loop to format everything
+    template = "{0:30} {1:7} {2:25}"
+    output = [template.format(*movie) for movie in sorted_movies]
     return output
 
 
 pprint(
-    sorted_countries(
+    oscar_movies(
         [
-            ("Canada", 9984670, 38250000),
-            ("Italy", 301340, 59110000),
-            ("United Kingdom", 242495, 67220000),
-            ("France", 551695, 67390000),
-            ("Germany", 357022, 83200000),
-            ("Japan", 377975, 125700000),
-            ("United States", 9833517, 331900000),
+            ("Oppenheimer", 180, "Christopher Nolan"),
+            ("Barbie", 114, "Greta Gerwig"),
+            ("Killers of the Flower Moon", 206, "Martin Scorsese"),
+            ("The Fabelmans", 151, "Steven Spielberg"),
+            ("Past Lives", 105, "Celine Song"),
+            ("The Marvels", 105, "Nia DaCosta"),
+            ("Maestro", 140, "Bradley Cooper"),
+            ("Napoleon", 160, "Ridley Scott"),
+            ("A Good Person", 115, "Zach Braff"),
+            ("Poor Things", 142, "Yorgos Lanthimos"),
         ]
     )
 )
