@@ -150,17 +150,55 @@
 
 # print(list_of_lists([[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12, 13, 14, 15, 16]]))
 
-import operator
+# import operator
 
 
-def list_of_lists(items):
-    count = 0
-    count_list = []
-    for item in items:
-        count += len(item)
-        count_list.append({"list": item, "count": count})
-        count = 0
-    return sorted(count_list, key=operator.itemgetter("count"))
+# def list_of_lists(items):
+#     count = 0
+#     count_list = []
+#     for item in items:
+#         count += len(item)
+#         count_list.append({"list": item, "count": count})
+#         count = 0
+#     return sorted(count_list, key=operator.itemgetter("count"))
 
 
-print(list_of_lists([[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12, 13, 14, 15, 16]]))
+# print(list_of_lists([[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12, 13, 14, 15, 16]]))
+
+
+# def reverseVowels(s: str) -> str:
+#     vowels = "aeiouAEIOU"
+#     occurence = []
+#     for letter in range(len(s) - 1, -1, -1):
+#         if s[letter] in vowels:
+#             occurence.append(s[letter])
+
+#     result = ""
+#     for letter in s:
+#         if letter in vowels:
+#             # pop from occurrence to reverse vowels
+#             result += occurence.pop(0)
+#         else:
+#             result += letter
+
+#     return result
+
+
+# print(reverseVowels("leetcode"))
+from collections import Counter
+
+WORDS = ["this", "is", "an", "elementary", "test", "example"]
+
+
+def most_repeating_letter_count(word):
+    vowels = "aeiouAEIOU"
+    for letter in word:
+        if letter in vowels:
+            return Counter(word).most_common(1)[0][1]
+
+
+def most_repeating_word(words):
+    return max(words, key=most_repeating_letter_count)
+
+
+print(most_repeating_word(WORDS))
