@@ -230,45 +230,93 @@
 #     )
 # )
 
-import operator
-from pprint import pprint
+# import operator
+# from pprint import pprint
 
 
-def oscar_movies(best_movies):
-    user_input = input(
-        "How do you want the data displayed? ('title/length/director'): "
-    ).lower()
+# def oscar_movies(best_movies):
+#     user_input = input(
+#         "How do you want the data displayed? ('title/length/director'): "
+#     ).lower()
 
-    # Decide the sort key
-    if user_input == "title":
-        sorted_movies = sorted(best_movies, key=operator.itemgetter(0))
-    elif user_input == "length":
-        sorted_movies = sorted(best_movies, key=operator.itemgetter(1))
-    elif user_input == "director":
-        sorted_movies = sorted(best_movies, key=operator.itemgetter(2))
-    else:
-        print("Invalid input, showing unsorted list")
-        sorted_movies = best_movies
+#     # Decide the sort key
+#     if user_input == "title":
+#         sorted_movies = sorted(best_movies, key=operator.itemgetter(0))
+#     elif user_input == "length":
+#         sorted_movies = sorted(best_movies, key=operator.itemgetter(1))
+#     elif user_input == "director":
+#         sorted_movies = sorted(best_movies, key=operator.itemgetter(2))
+#     else:
+#         print("Invalid input, showing unsorted list")
+#         sorted_movies = best_movies
 
-    # Single loop to format everything
-    template = "{0:30} {1:7} {2:25}"
-    output = [template.format(*movie) for movie in sorted_movies]
-    return output
+#     # Single loop to format everything
+#     template = "{0:30} {1:} {2:25}"
+#     output = [template.format(*movie) for movie in sorted_movies]
+#     return output
 
 
-pprint(
-    oscar_movies(
-        [
-            ("Oppenheimer", 180, "Christopher Nolan"),
-            ("Barbie", 114, "Greta Gerwig"),
-            ("Killers of the Flower Moon", 206, "Martin Scorsese"),
-            ("The Fabelmans", 151, "Steven Spielberg"),
-            ("Past Lives", 105, "Celine Song"),
-            ("The Marvels", 105, "Nia DaCosta"),
-            ("Maestro", 140, "Bradley Cooper"),
-            ("Napoleon", 160, "Ridley Scott"),
-            ("A Good Person", 115, "Zach Braff"),
-            ("Poor Things", 142, "Yorgos Lanthimos"),
-        ]
+# pprint(
+#     oscar_movies(
+#         [
+#             ("Oppenheimer", 180, "Christopher Nolan"),
+#             ("Barbie", 114, "Greta Gerwig"),
+#             ("Killers of the Flower Moon", 206, "Martin Scorsese"),
+#             ("The Fabelmans", 151, "Steven Spielberg"),
+#             ("Past Lives", 105, "Celine Song"),
+#             ("The Marvels", 105, "Nia DaCosta"),
+#             ("Maestro", 140, "Bradley Cooper"),
+#             ("Napoleon", 160, "Ridley Scott"),
+#             ("A Good Person", 115, "Zach Braff"),
+#             ("Poor Things", 142, "Yorgos Lanthimos"),
+#         ]
+#     )
+# )
+
+
+def order_menu(menu):
+    total = 0
+    order_items = []
+    while True:
+        user_input = input("What Would You Like To Order? ")
+
+        if user_input.lower() == "done" or user_input == "":
+            break
+
+        found_item = None
+        for item in menu:
+            if user_input.lower() == item.lower():
+                found_item = item
+                break
+
+        if found_item in menu:
+            total += menu[found_item]
+            print(f"Order: {found_item}")
+            print(f"{found_item} Cost ${menu[found_item]:.2f}. Total is ${total:.2f}.")
+            order_items.append(found_item)
+            continue
+
+        elif user_input not in menu:
+            print(f"We are Fresh Out of {user_input} Today.")
+            continue
+
+    print(f"You Ordered {order_items}. Your Total is ${total:.2f}. ")
+    return "Thank You. Please Come Again."
+
+
+print(
+    order_menu(
+        {
+            "Cheeseburger": 8.99,
+            "Veggie Burger": 7.99,
+            "Caesar Salad": 6.49,
+            "French Fries": 3.49,
+            "Onion Rings": 3.99,
+            "Grilled Chicken Sandwich": 9.49,
+            "Fish & Chips": 10.99,
+            "Soda": 1.99,
+            "Coffee": 2.49,
+            "Ice Cream Sundae": 4.99,
+        }
     )
 )
