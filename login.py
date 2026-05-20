@@ -139,3 +139,26 @@
 
 
 # print(evenArguments("a", 1, "b", 2, "c", 3))
+import random
+
+
+def decidingfunction(d1):
+    output = {}
+    for key, value in d1.items():
+        output[key] = random.choice([True, False])
+    return output
+
+
+def dictpartition(d, f):
+    d1 = {}
+    d2 = {}
+    result = f(d)
+    for key, value in d.items():
+        if result[key] is True:
+            d1[key] = d[key]
+        elif result[key] is False:
+            d2[key] = d[key]
+    return d1, d2
+
+
+print(dictpartition({"a": 1, "b": 2, "c": 3, "d": 4}, decidingfunction))
