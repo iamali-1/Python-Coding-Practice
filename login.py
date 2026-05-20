@@ -99,14 +99,25 @@
 # print(get_rainfall())
 
 
-def dictduff(d1, d2):
-    final = {}
-    all_keys = set(d1.keys()).union(d2.keys())
-    print(all_keys)
-    for key in all_keys:
-        if d1.get(key) != d2.get(key):
-            final[key] = [d1.get(key), d2.get(key)]
-    return final
+# def dictduff(d1, d2):
+#     final = {}
+#     all_keys = set(d1.keys()).union(d2.keys())
+#     print(all_keys)
+#     for key in all_keys:
+#         if d1.get(key) != d2.get(key):
+#             final[key] = [d1.get(key), d2.get(key)]
+#     return final
 
 
-print(dictduff({"a": 1, "b": 2, "c": 3}, {"a": 1, "b": 2, "c": 4}))
+# print(dictduff({"a": 1, "b": 2, "c": 3}, {"a": 1, "b": 2, "c": 4}))
+
+
+def mergedict(*dicts):
+
+    result = {}
+    for d in dicts:
+        result.update(d)
+    return result
+
+
+print(mergedict({"a": 1, "b": 2, "c": 3}, {"a": 1, "b": 2, "c": 4, "e": 5}))
