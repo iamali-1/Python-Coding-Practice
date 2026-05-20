@@ -112,12 +112,30 @@
 # print(dictduff({"a": 1, "b": 2, "c": 3}, {"a": 1, "b": 2, "c": 4}))
 
 
-def mergedict(*dicts):
+# def mergedict(*dicts):
 
-    result = {}
-    for d in dicts:
-        result.update(d)
-    return result
+#     result = {}
+#     for d in dicts:
+#         result.update(d)
+#     return result
 
 
-print(mergedict({"a": 1, "b": 2, "c": 3}, {"a": 1, "b": 2, "c": 4, "e": 5}))
+# print(mergedict({"a": 1, "b": 2, "c": 3}, {"a": 1, "b": 2, "c": 4, "e": 5}))
+
+
+# def evenArguments(*arguments):
+#     final = {}
+#     keys = []
+#     values = []
+#     for even in range(len(arguments)):
+#         if even % 2 == 0:
+#             keys.append(arguments[even])
+#         elif even % 2 != 0:
+#             values.append(arguments[even])
+
+#     for i in range(len(keys)):
+#         final[keys[i]] = values[i]
+#     return final
+
+
+# print(evenArguments("a", 1, "b", 2, "c", 3))
